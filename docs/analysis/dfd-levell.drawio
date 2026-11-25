@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="DFD Level 1" id="dfd-level1">
+    <mxGraphModel dx="1200" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="750">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="e1_driver" value="Жүргізуші" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1_app" value="Мобильді қосымша" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1_gate" value="Шлагбаум" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="280" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p21" value="2.1&#xa;Бос орындарды іздеу және тексеру" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="130" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p22" value="2.2&#xa;Броньды сақтау және QR-код қалыптастыру" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="410" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p23" value="2.3&#xa;QR-кодты тексеріп, кіруге рұқсат беру" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="270" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1_spots" value="D2 | parking_spots" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=1;bottom=1;left=1;right=0;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="100" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1_bookings" value="D3 | bookings" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=1;bottom=1;left=1;right=0;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="450" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1_logs" value="D4 | access_logs" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=1;bottom=1;left=1;right=0;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="450" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="Бос орын сұрауы" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="e1_driver" target="p21"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s2" value="Орындар тізімін оқу" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="d1_spots" target="p21"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s3" value="Бос орындар тізімі" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="p21" target="e1_app"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s4" value="Таңдалған орын" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="e1_app" target="p22"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s5" value="Орын күйін reserved ету" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="p22" target="d1_spots"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s6" value="Жаңа бронь және QR-код" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="p22" target="d1_bookings"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s7" value="QR-код / Растау" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="p22" target="e1_driver"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s8" value="Броньды тексеру" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="d1_bookings" target="p23"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s9" value="QR-код сканерлеу" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="e1_gate" target="p23"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s10" value="Шлагбаумды ашу пәрмені" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="p23" target="e1_gate"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s11" value="Кіру журналына жазу" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;" edge="1" parent="1" source="p23" target="d1_logs"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

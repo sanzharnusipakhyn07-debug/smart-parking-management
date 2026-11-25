@@ -54,3 +54,11 @@ smart-parking-system/
         ├── sequence-enter-parking.drawio
         └── sequence-enter-parking.png
 ```
+
+## Деректер ағыны және деректер қоры (13-апта)
+* [DFD Контекстік диаграмма (drawio)](docs/analysis/dfd-context.drawio) / [PNG](docs/analysis/dfd-context.png)
+* [DFD Деңгей 0 (drawio)](docs/analysis/dfd-level0.drawio) / [PNG](docs/analysis/dfd-level0.png)
+* [DFD Деңгей 1 (drawio)](docs/analysis/dfd-levell.drawio) / [PNG](docs/analysis/dfd-levell.png)
+* [ER-диаграмма (drawio)](docs/database/erd.drawio) / [PNG](docs/database/erd.png)
+* [SQL схемасы мен сұраныстар](docs/database/schema.sql)
+* [SQL сұраныстар нәтижесі](docs/database/query-results.png)

@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ERD" id="erd">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="850">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t_users" value="users&#xa;----------------&#xa;PK user_id : SERIAL&#xa;full_name : VARCHAR(120)&#xa;phone : VARCHAR(20)&#xa;car_plate : VARCHAR(20)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="210" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="t_tariffs" value="tariffs&#xa;----------------&#xa;PK tariff_id : SERIAL&#xa;name : VARCHAR(100)&#xa;price_per_hour : NUMERIC" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="210" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="t_spots" value="parking_spots&#xa;----------------&#xa;PK spot_id : SERIAL&#xa;spot_code : VARCHAR(20)&#xa;zone_name : VARCHAR(50)&#xa;status : VARCHAR(20)&#xa;FK tariff_id : INT" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="380" y="320" width="210" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="t_bookings" value="bookings&#xa;----------------&#xa;PK booking_id : SERIAL&#xa;FK user_id : INT&#xa;FK spot_id : INT&#xa;qr_code : VARCHAR(100)&#xa;status : VARCHAR(20)&#xa;created_at : TIMESTAMP" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="380" y="70" width="210" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="t_logs" value="access_logs&#xa;----------------&#xa;PK log_id : SERIAL&#xa;FK booking_id : INT&#xa;gate_name : VARCHAR(50)&#xa;direction : VARCHAR(10)&#xa;logged_at : TIMESTAMP" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="720" y="60" width="210" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="t_bserv" value="booking_services (M:N)&#xa;----------------&#xa;PK, FK booking_id : INT&#xa;PK, FK service_id : INT&#xa;quantity : INT" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="720" y="250" width="210" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="t_services" value="services&#xa;----------------&#xa;PK service_id : SERIAL&#xa;title : VARCHAR(100)&#xa;price : NUMERIC" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="720" y="430" width="210" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="t_users" target="t_bookings"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r2" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="t_tariffs" target="t_spots"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r3" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="t_spots" target="t_bookings"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r4" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="t_bookings" target="t_logs"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r5" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="t_bookings" target="t_bserv"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r6" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="t_services" target="t_bserv"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
